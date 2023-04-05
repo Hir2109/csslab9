@@ -1,0 +1,184 @@
+/* Base Styles */ 
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font: 1.2em/1.4 Arial, Helvetica, sans-serif;
+}
+
+body {
+    padding: 0 0 1em;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    border: 5px solid #000;
+}
+
+header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 0.5em 1em;
+    /* border-top: 1px solid #999; */
+}
+
+header .title {
+    font-size: 150%;
+    font-style: italic;
+    font-weight: bold;
+    padding: 1em;
+}
+
+main {
+    padding: 0 1em;
+}
+
+.cards {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.cards li {
+    border: 5px solid #000;
+    margin-bottom: 1em;
+}
+
+.cards h2 {
+    background-color: #333;
+    color: #fff;
+    margin: 0;
+    padding: 0.5em 1em;
+}
+
+.cards .inner {
+    padding: 0.5em 1em;
+}
+
+.sidebar {
+    background-color: #333;
+    border: 5px solid #000;
+    padding: 0.5em 1em;
+    color: #fff;
+    
+}
+
+/* Responsive Stuff Here! */
+
+/* first of all we'll begin with header  by aligning links on the top right corner
+by using flex */
+
+header {
+    display: flex;    
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  
+  nav {
+    display: flex;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+  nav a {
+    text-decoration: none;
+  }
+  
+/* using grid we can achieve the desirable layout */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr); /* as layout requires 3, 2fr */
+  grid-gap: 20px;
+  }
+
+  main{
+    display: flex;
+  }
+  
+  /* to adjust the sidebar on right side */
+  .sidebar {
+    background-color: #333;
+    border: 5px solid #000;
+    padding: 0.5em 1em;
+    color: #fff;
+    flex: 0 0 20%;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+ 
+/* Media Queries */
+
+/* For screens smaller than 600px (mobile) */
+@media only screen and (max-width: 600px) {
+
+  /* Header */
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  nav li {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  /* Cards */
+  .cards {
+    grid-template-columns: repeat(2, 2fr);
+  }
+  
+}
+
+/* For screens between 600px and 900px (tablet in portrait mode) */
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+
+  /* Header */
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  nav li {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  
+  /* Cards */
+  .cards
+  {
+    grid-template-columns: repeat(1, 1fr); /*change to one column*/
+    }
+    
+    main {
+    display: block; /*remove flex display*/
+    margin: 0 auto; /*center main content*/
+    max-width: 80%; /*set maximum width*/
+    }
+    
+    /* Sidebar */
+    .sidebar {
+    flex: 0 0 100%; /*set to full width*/
+    margin: 20px 0; /*add margin top and bottom*/
+    }
+    
+  }
+
+
+
